@@ -11,7 +11,7 @@ library(org.Mm.eg.db)
 
 
 # read in counts data
-counts <- read.csv('ctnnb_gene_tpm.csv', header = TRUE, row.names = 1)
+counts <- read.csv('gene_tpm.csv', header = TRUE, row.names = 1)
 
 #filter out counts with rowsums less than 10
 
@@ -260,7 +260,7 @@ h3 <- Heatmap(mean, row_labels = df.top$symbol[rows_keep],
 
 #h <- h1+h2+h3
 h <- h1+h2
-png("ctnnb_TPMheatmap.png",  res = 300, width = 3500, height =4500)
+png("geneTPMheatmap.png",  res = 300, width = 3500, height =4500)
 print(h)
 dev.off()
 
@@ -282,7 +282,7 @@ colnames(mats.z) <- rownames(coldata)
 #mats.z
 
 #make the heatmap
-png("simple_heatmap_cul3.png",  res = 300, width = 3500, height =4500)
+png("simple_heatmap.png",  res = 300, width = 3500, height =4500)
 Heatmap(mats.z, cluster_rows = F, cluster_columns = T, column_labels = colnames(mats.z),
         name="z-score", row_labels = sigtop.df[rownames(mats.z),]$symbol)
 dev.off()
